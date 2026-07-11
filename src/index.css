@@ -1,0 +1,75 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+
+  --color-gray-100: #0f1010;
+  --color-gray-95: #161616;
+  --color-gray-90: #272928;
+  --color-gray-80: #323434;
+  --color-gray-70: #4b4e4e;
+  --color-gray-60: #5d6060;
+  --color-gray-50: #757a79;
+  --color-gray-40: #939595;
+  --color-gray-30: #b6b9b8;
+  --color-gray-20: #d0d2d2;
+  --color-gray-10: #e5e6e6;
+  --color-gray-05: #f5f5f5;
+  --color-gray-03: #fafafa;
+  --color-gray-00: #ffffff;
+
+  --color-green-90: #3e522a;
+  --color-green-30: #8ebc62;
+  --color-green-20: #b2cd98;
+  --color-green-10: #cce0b8;
+  --color-green-point: #bfe599;
+  --color-green-00: #e6f2d9;
+
+  --color-red-05: #c94233;
+  --color-red-03: #f8e1de;
+  --color-orange-05: #a86d09;
+  --color-orange-03: #fef3e2;
+}
+
+/* Base resets must live in Tailwind's own `base` layer — plain unlayered CSS
+   always wins over layered utility classes in the cascade regardless of
+   specificity, which was silently overriding text/bg color utilities on
+   `<button>` elements (e.g. `text-gray-00` was losing to `button { color:
+   inherit }` below). */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--color-gray-05);
+    color: var(--color-gray-95);
+    -webkit-font-smoothing: antialiased;
+    /* Matches the `[word-break:break-word]` the Figma export applies to every
+       text node, so long names/sentences wrap inside fixed-width containers
+       instead of overflowing. */
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+
+  button {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+/* iOS-style momentum scroll, hide scrollbar for the mobile frame */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
