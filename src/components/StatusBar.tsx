@@ -1,6 +1,9 @@
 export default function StatusBar() {
   return (
-    <div className="flex items-center justify-between w-full px-[24px] pt-[16px] pb-[4px] text-[15px] font-semibold text-gray-95 shrink-0">
+    // Hidden below 480px — a real phone already shows its own OS status bar,
+    // so this fake mockup one (used for the desktop phone-frame illustration)
+    // would just duplicate it.
+    <div className="hidden min-[480px]:flex items-center justify-between w-full px-[24px] pt-[16px] pb-[4px] text-[15px] font-semibold text-gray-95 shrink-0">
       <span>9:41</span>
       <div className="flex items-center gap-[6px]">
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none">

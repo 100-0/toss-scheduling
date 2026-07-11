@@ -23,17 +23,17 @@ export default function HomeScreen() {
         <div className="flex flex-col gap-3 items-start px-5 py-3.5 rounded-2xl w-full">
           <div className="flex flex-col gap-1 items-start w-full">
             <div className="text-[13px] font-semibold text-gray-60 w-full">회의 이름</div>
-            <div className="border-b border-gray-10 pb-[7px] w-full text-[15px] text-gray-95">{MEETING_TITLE}</div>
+            <div className="border-b border-gray-10 h-9 flex items-center w-full text-[15px] text-gray-95">{MEETING_TITLE}</div>
           </div>
           <div className="flex flex-col gap-1 items-start w-full">
             <div className="text-[13px] font-semibold text-gray-60 w-full">소요 시간</div>
-            <div className="border-b border-gray-10 pb-[7px] w-full text-[15px] text-gray-95">{MEETING_DURATION_HOURS}시간</div>
+            <div className="border-b border-gray-10 h-9 flex items-center w-full text-[15px] text-gray-95">{MEETING_DURATION_HOURS}시간</div>
           </div>
           <div className="flex flex-col gap-1 items-start w-full">
             <div className="text-[13px] font-semibold text-gray-60 w-full">회의 기간</div>
             <button
               onClick={() => openSheet('calendar')}
-              className="border-b border-gray-10 pb-[7px] flex items-center justify-between w-full cursor-pointer"
+              className="border-b border-gray-10 h-9 flex items-center justify-between w-full cursor-pointer"
             >
               <span className={`text-[15px] ${rangeChosen ? 'text-gray-95' : 'text-gray-40'}`}>
                 {rangeChosen
