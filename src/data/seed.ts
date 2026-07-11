@@ -1,5 +1,5 @@
 import type { Member, MemberGridState, MemberId, DateStr, CellSource } from '../types';
-import { MEETING_START, MEETING_END, weekdaysInRange, weekdayLabel, HOUR_START, HOUR_END } from '../lib/dates';
+import { MEETING_START, MEETING_END, weekdaysInRange, weekdayLabel } from '../lib/dates';
 import { cellKey, hourToSlot } from '../lib/grid';
 
 export const MEMBERS: Member[] = [
