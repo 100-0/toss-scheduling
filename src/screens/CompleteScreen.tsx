@@ -55,12 +55,17 @@ export default function CompleteScreen() {
         </div>
         <div className="text-[15px] text-gray-80">확정된 회의 일정이 전원에게 발송됐어요.</div>
       </div>
-      <button
-        onClick={() => setScreen('home')}
-        className="absolute bottom-[102px] left-0 w-full text-center text-[13px] font-medium text-gray-60 cursor-pointer"
-      >
-        일정 다시 선택하기
-      </button>
+      <div className="absolute bottom-[102px] left-0 flex flex-col items-center w-full">
+        <button
+          onClick={() => setScreen('home')}
+          className="flex items-center text-[15px] font-medium text-gray-60 cursor-pointer"
+        >
+          일정 다시 선택하기
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 4L11 9L7 14" stroke="#5D6060" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
       <ButtonDock label="확인" onClick={() => setScreen('home')} />
     </div>
   );

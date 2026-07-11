@@ -31,7 +31,7 @@ export default function AvoidTimeScreen() {
       <StatusBar />
       <div className="flex flex-col items-start w-full shrink-0">
         <Header title="" onBack={isHost ? () => setScreen('home') : undefined} />
-        <div className="flex flex-col items-start overflow-clip pb-5 px-4 w-full">
+        <div className="flex flex-col items-start overflow-clip pb-5 px-5 w-full">
           <div className="flex gap-1 items-center w-full">
             <div className="flex-1 h-1 rounded-full bg-gray-70" />
             <div className="flex-1 h-1 rounded-full bg-gray-40/30" />

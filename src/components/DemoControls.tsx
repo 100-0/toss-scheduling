@@ -26,7 +26,7 @@ export default function DemoControls() {
               style={active ? { backgroundColor: '#161616', borderColor: '#161616' } : undefined}
             >
               <Avatar id={id} size={24} />
-              <span className="text-[14px] font-medium">{m.name}로 전환</span>
+              <span className="text-[14px] font-medium">{m.name}으로 전환</span>
               {active && <span className="ml-auto text-[11px] opacity-70">보는 중</span>}
             </button>
           );

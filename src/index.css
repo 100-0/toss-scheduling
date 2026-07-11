@@ -48,10 +48,11 @@
     background: var(--color-gray-05);
     color: var(--color-gray-95);
     -webkit-font-smoothing: antialiased;
-    /* Matches the `[word-break:break-word]` the Figma export applies to every
-       text node, so long names/sentences wrap inside fixed-width containers
-       instead of overflowing. */
-    word-break: break-word;
+    /* keep-all avoids breaking mid-word inside Korean text (the default
+       break-word can split a word at an arbitrary syllable); overflow-wrap
+       still lets a genuinely unbreakable long token wrap instead of
+       overflowing its container. */
+    word-break: keep-all;
     overflow-wrap: break-word;
   }
 

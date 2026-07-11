@@ -8,7 +8,7 @@ import { useAppStore } from '../store/useAppStore';
 import { weekdaysInRange, groupByWeek, shortDateLabel, weekdayLabel, longDateLabel, formatHourRange } from '../lib/dates';
 import { computeExploreWeekCells, densityLevel } from '../lib/suggest';
 import type { ExploreCell } from '../lib/suggest';
-import { MEMBERS, MEETING_TITLE, MEETING_DURATION_HOURS } from '../data/seed';
+import { MEMBERS } from '../data/seed';
 
 const CELL = 40; // matches TimeGrid's one-hour row height exactly
 const HEADER_H = 40;
@@ -85,7 +85,7 @@ export default function ExploreTimesScreen() {
       <Header title="다른 시간 탐색" onBack={() => setScreen('suggestTime')} />
 
       <div className="px-5 pb-3 w-full shrink-0 text-[13px] text-gray-60 leading-[1.5]">
-        {MEETING_TITLE} · {MEETING_DURATION_HOURS}시간 · 참여 가능 인원이 많을수록 진하게 표시돼요
+        참여 가능 인원이 많을수록 진하게 표시돼요
       </div>
 
       {weeks.length > 1 && (

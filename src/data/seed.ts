@@ -49,26 +49,37 @@ export function buildInitialGridStates(): Record<MemberId, MemberGridState> {
     youngju: emptyState(),
   };
 
-  // 이가영(나): 7/15(수) 외근 14-17 (특정 1회), 7/17(금) 연차 (특정 1회)
+  // 이가영(나, 필수): 7/15(수) 외근 14-17 (특정 1회), 7/17(금) 연차 (특정 1회)
   addExcluded(states.gayoung, '2026-07-15', 14, 17, 'calendar');
   states.gayoung.dayoff.set('2026-07-17', '연차');
 
-  // 박은주(필수): 매주 화요일 종일 세미나로 완전 블록
-  for (const d of byWeekday('화')) states.eunju.dayoff.set(d, '세미나');
+  // 윤지은(필수): 매주 월 9-11 외부미팅 (불가) + 매주 금 14-17 외부강의 (불가)
+  for (const d of byWeekday('월')) addExcluded(states.jieun, d, 9, 11, 'calendar');
+  for (const d of byWeekday('금')) addExcluded(states.jieun, d, 14, 17, 'calendar');
 
-  // 윤지은(필수): 매주 금요일 종일 워크숍으로 완전 블록
-  for (const d of byWeekday('금')) states.jieun.dayoff.set(d, '워크숍');
+  // 박은주(필수): 매주 화 12-15 고객사 미팅 (불가) + 매주 수 15-18 외부출장 (불가)
+  for (const d of byWeekday('화')) addExcluded(states.eunju, d, 12, 15, 'calendar');
+  for (const d of byWeekday('수')) addExcluded(states.eunju, d, 15, 18, 'calendar');
 
-  // 정지훈(선택): 매주 목요일 종일 외근 + 매주 월요일 9-11 블록
-  for (const d of byWeekday('목')) states.jihoon.dayoff.set(d, '외근');
-  for (const d of byWeekday('월')) addExcluded(states.jihoon, d, 9, 11, 'calendar');
+  // 정지훈(선택): 매주 화 9-12 외부미팅 (불가) + 매주 목 13-17 외근 (불가)
+  //   + 매주 수 11-12 개인선호 회피 (양보가능)
+  for (const d of byWeekday('화')) addExcluded(states.jihoon, d, 9, 12, 'calendar');
+  for (const d of byWeekday('목')) addExcluded(states.jihoon, d, 13, 17, 'calendar');
+  for (const d of byWeekday('수')) addExcluded(states.jihoon, d, 11, 12, 'calendar', true);
 
-  // 한유진(선택): 매주 목요일 종일 외근 + 매주 월요일 14-18 블록
-  for (const d of byWeekday('목')) states.yujin.dayoff.set(d, '외근');
+  // 한유진(선택): 매주 월 14-18 오후 외부교육 (불가) + 매주 수 9-11 업무 집중시간 (불가)
+  //   + 매주 목 13-17 외근 공유 (불가) + 매주 수 11-12 개인선호 회피 (양보가능)
   for (const d of byWeekday('월')) addExcluded(states.yujin, d, 14, 18, 'calendar');
+  for (const d of byWeekday('수')) addExcluded(states.yujin, d, 9, 11, 'calendar');
+  for (const d of byWeekday('목')) addExcluded(states.yujin, d, 13, 17, 'calendar');
+  for (const d of byWeekday('수')) addExcluded(states.yujin, d, 11, 12, 'calendar', true);
 
-  // 최영주(선택): 매주 수요일 종일 외근 (처음부터 끝까지 불가능, 양보 불가)
-  for (const d of byWeekday('수')) addExcluded(states.youngju, d, HOUR_START, HOUR_END, 'calendar');
+  // 최영주(선택): 매주 목 9-13 오전 집중업무 (불가) + 매주 화 16-19 저녁 약속 (불가)
+  //   + 매주 월/화 9-12 재택 회피 (양보가능)
+  for (const d of byWeekday('목')) addExcluded(states.youngju, d, 9, 13, 'calendar');
+  for (const d of byWeekday('화')) addExcluded(states.youngju, d, 16, 19, 'calendar');
+  for (const d of byWeekday('월')) addExcluded(states.youngju, d, 9, 12, 'calendar', true);
+  for (const d of byWeekday('화')) addExcluded(states.youngju, d, 9, 12, 'calendar', true);
 
   return states;
 }

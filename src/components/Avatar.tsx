@@ -43,7 +43,7 @@ export default function Avatar({ id, size = 28, required = false, className = ''
         <span
           aria-label="필수 참석"
           className="absolute rounded-full bg-gray-90 border-2 border-gray-00"
-          style={{ width: badgeSize, height: badgeSize, right: -1, bottom: -1 }}
+          style={{ width: badgeSize, height: badgeSize, left: -1, bottom: -1 }}
         />
       )}
     </div>

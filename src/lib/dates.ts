@@ -93,11 +93,10 @@ export function formatHour12(hourDecimal: number): { period: '오전' | '오후'
   return { period, label };
 }
 
+/** e.g. "오전 11:00 - 12:00" — 오전/오후 is only ever shown on the start time,
+ * even when the end time crosses into the other period. */
 export function formatHourRange(startHour: number, endHour: number): string {
   const s = formatHour12(startHour);
   const e = formatHour12(endHour);
-  if (s.period === e.period) {
-    return `${s.period} ${s.label} - ${e.label}`;
-  }
-  return `${s.period} ${s.label} - ${e.period} ${e.label}`;
+  return `${s.period} ${s.label} - ${e.label}`;
 }

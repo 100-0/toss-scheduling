@@ -82,7 +82,7 @@ export default function SuggestTimeScreen() {
       <StatusBar />
       <Header title="추천 시간" onBack={() => setScreen('yieldTime')} />
 
-      <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar pb-[120px]">
+      <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar pb-[90px] flex flex-col">
         <div className="flex flex-col gap-2 items-start px-6 py-3 w-full">
           <div className="flex items-center justify-between w-full">
             <div className="text-[19px] font-bold text-gray-95 truncate max-w-[180px] break-words">{MEETING_TITLE}</div>
@@ -137,10 +137,16 @@ export default function SuggestTimeScreen() {
           </div>
         ) : (
           <>
+            {/* pt-2/pb-6 live on the scrollable row itself (not a wrapping div) —
+                overflow-x-auto forces overflow-y to clip too, so the card's
+                shadow only has room to render within this element's own
+                padding. The dots are pulled up into that same padded band
+                (-mt-4) so they read as sitting inside the fading shadow
+                rather than in a separate block below it. */}
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex gap-4 items-center px-4 py-3 overflow-x-auto no-scrollbar snap-x snap-mandatory"
+              className="flex gap-4 items-center px-4 pt-2 pb-6 overflow-x-auto no-scrollbar snap-x snap-mandatory"
             >
               {suggestions.map((s) => (
                 <div key={`${s.date}-${s.startHour}`} className="snap-center">
@@ -151,7 +157,7 @@ export default function SuggestTimeScreen() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col items-center px-2.5 py-2 w-full">
+            <div className="flex flex-col items-center px-2.5 -mt-4 w-full">
               <div className="bg-gray-10 flex gap-2 items-center px-3 py-1 rounded-full">
                 {suggestions.map((_, i) => (
                   <button
@@ -168,7 +174,7 @@ export default function SuggestTimeScreen() {
           </>
         )}
 
-        <div className="flex flex-col items-center py-0.5 w-full">
+        <div className="flex flex-col items-center py-0.5 w-full mt-auto">
           <button className="flex items-center text-[15px] font-medium text-gray-60 cursor-pointer" onClick={() => setScreen('exploreTimes')}>
             다른 시간 탐색
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
