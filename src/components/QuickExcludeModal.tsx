@@ -28,12 +28,11 @@ export default function QuickExcludeModal() {
         <div className="flex flex-col gap-1 items-start pb-3 px-2 w-full">
           <div className="text-[13px] text-gray-70 px-1">
             <p>대부분의 사람들이 꺼리는 시간이에요.</p>
-            <p>아래 버튼을 클릭해서 빠르게 제외할 수 있어요</p>
+            <p>아래 버튼을 눌러서 빠르게 제외할 수 있어요</p>
           </div>
           <div className="flex flex-wrap gap-2 items-start py-4 w-full">
             {QUICK_EXCLUDE_PRESETS.map((p) => {
               const active = selected.has(p.id);
-              const label = p.displayHasTime ? `${p.label} (${p.timeLabel})` : p.label;
               return (
                 <button
                   key={p.id}
@@ -42,7 +41,8 @@ export default function QuickExcludeModal() {
                     active ? 'bg-gray-20 text-gray-95' : 'text-gray-95'
                   }`}
                 >
-                  {label}
+                  {p.label}
+                  {p.displayHasTime && <span className="text-gray-50"> ({p.timeLabel})</span>}
                 </button>
               );
             })}

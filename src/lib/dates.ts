@@ -54,6 +54,12 @@ export function longDateLabel(d: DateStr): string {
   return `${date.getMonth() + 1}월 ${date.getDate()}일 ${weekdayLabel(d)}`;
 }
 
+/** e.g. "7월 14일" — same 월/일 notation as longDateLabel, without the weekday. */
+export function monthDayLabel(d: DateStr): string {
+  const date = parseDate(d);
+  return `${date.getMonth() + 1}월 ${date.getDate()}일`;
+}
+
 export function weekdaysInRange(start: DateStr, end: DateStr): DateStr[] {
   const result: DateStr[] = [];
   let cur = start;

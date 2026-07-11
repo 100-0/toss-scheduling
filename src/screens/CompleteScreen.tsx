@@ -53,7 +53,7 @@ export default function CompleteScreen() {
             </div>
           </div>
         </div>
-        <div className="text-[15px] text-gray-80">확정된 회의 일정이 전원에게 발송됐어요.</div>
+        <div className="text-[15px] text-gray-80">확정된 회의 일정을 전원에게 보냈어요.</div>
       </div>
       <div className="absolute bottom-[102px] left-0 flex flex-col items-center w-full">
         <button

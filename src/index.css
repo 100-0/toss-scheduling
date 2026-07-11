@@ -54,6 +54,11 @@
        overflowing its container. */
     word-break: keep-all;
     overflow-wrap: break-word;
+    /* Figma specs every text style at -4% tracking; letter-spacing has no
+       percent unit in CSS, so -0.04em is the equivalent (scales with each
+       element's own font-size, same as Figma's percentage does). Set once
+       here and inherited, rather than repeated per text style. */
+    letter-spacing: -0.04em;
   }
 
   #root {

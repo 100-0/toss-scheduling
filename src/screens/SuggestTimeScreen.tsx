@@ -7,7 +7,7 @@ import Avatar from '../components/Avatar';
 import { useAppStore } from '../store/useAppStore';
 import { generateSuggestions } from '../lib/suggest';
 import { MEMBERS, MEETING_TITLE, MEETING_DURATION_HOURS } from '../data/seed';
-import { shortDateLabel } from '../lib/dates';
+import { monthDayLabel } from '../lib/dates';
 import type { SuggestedSlot } from '../types';
 
 type Filter = 'all' | 'noYield' | 'allPossible';
@@ -97,12 +97,12 @@ export default function SuggestTimeScreen() {
           <div className="flex items-center justify-between w-full text-[15px] text-gray-60">
             <div className="flex gap-1 items-start">
               <span>총 시간</span>
-              <span className="font-semibold text-gray-95">{MEETING_DURATION_HOURS}시간</span>
+              <span className="font-semibold">{MEETING_DURATION_HOURS}시간</span>
             </div>
             <div className="flex gap-1 items-start">
               <span>회의 기한</span>
-              <span className="font-semibold text-gray-95 break-words">
-                {shortDateLabel(meetingRange.start)} ~ {shortDateLabel(meetingRange.end)}
+              <span className="font-semibold break-words">
+                {monthDayLabel(meetingRange.start)} ~ {monthDayLabel(meetingRange.end)}
               </span>
             </div>
           </div>

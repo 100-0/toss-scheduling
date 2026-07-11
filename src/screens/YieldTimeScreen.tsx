@@ -38,7 +38,7 @@ export default function YieldTimeScreen() {
           </div>
         </div>
         <div className="flex flex-col gap-2 items-start px-5 w-full">
-          <div className="text-[24px] font-bold text-gray-95 leading-[1.35]">조율 가능한 시간이 있나요?</div>
+          <div className="text-[24px] font-bold text-gray-95 leading-[1.35]">양보할 수 있는 시간이 있나요?</div>
           <div className="text-[15px] text-gray-70 leading-[1.55] w-[290px]">
             선택하지 않고 넘어가도 괜찮아요. 양보할 수 있는 시간을 표시해주시면, 추천 일정의 합의 가능성이 더 정확해져요.
           </div>
@@ -46,7 +46,7 @@ export default function YieldTimeScreen() {
         <div className="flex flex-col items-start pb-1 pt-4 px-4 w-full">
           <div className="bg-gray-20 rounded-lg px-4 py-3 shadow-[0_-2px_24px_rgba(0,0,0,0.04)] w-full">
             <p className="text-[13px] text-gray-95 leading-[1.5]">
-              앞에서 선택한 시간 중, 중요 일정은 미리 제외하고 모았어요.
+              앞에서 참석이 어렵다고 표시한 시간은 여기서 제외했어요.
             </p>
           </div>
         </div>

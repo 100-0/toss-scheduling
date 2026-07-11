@@ -85,7 +85,7 @@ export default function ExploreTimesScreen() {
       <Header title="다른 시간 탐색" onBack={() => setScreen('suggestTime')} />
 
       <div className="px-5 pb-3 w-full shrink-0 text-[13px] text-gray-60 leading-[1.5]">
-        참여 가능 인원이 많을수록 진하게 표시돼요
+        참석 가능 인원이 많을수록 진하게 표시돼요
       </div>
 
       {weeks.length > 1 && (
@@ -103,7 +103,7 @@ export default function ExploreTimesScreen() {
             <span className="flex-1 bg-green-20" />
             <span className="flex-1 bg-green-30" />
           </span>
-          참여 가능 인원
+          참석 가능 인원
         </div>
         <div className="flex items-center gap-1.5">
           <span className="size-2.5 rounded-[3px] shrink-0" style={DEAD_STYLE} />
@@ -256,7 +256,7 @@ export default function ExploreTimesScreen() {
                 [
                   ['참석 가능', possible],
                   ['양보 가능', yielders],
-                  ['참석 불가', impossible],
+                  ['참석 불가능', impossible],
                 ] as const
               ).map(([label, list]) => {
                 const empty = list.length === 0;

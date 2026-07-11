@@ -13,6 +13,7 @@ export default function RequestYieldSheet() {
 
   const yielders = selectedSlot ? MEMBERS.filter((m) => selectedSlot.statuses[m.id] === 'yield') : [];
   const [checked, setChecked] = useState<Set<string>>(new Set(yielders.map((m) => m.id)));
+  const hasRequiredYielder = yielders.some((m) => requiredIds.has(m.id));
 
   const toggle = (id: string) =>
     setChecked((prev) => {
@@ -39,7 +40,11 @@ export default function RequestYieldSheet() {
               <br />
               양보를 요청할까요?
             </div>
-            <div className="text-[13px] text-gray-60">필수 인원이 아니라면 요청 없이 진행해도 괜찮아요.</div>
+            <div className="text-[13px] text-gray-60">
+              {hasRequiredYielder
+                ? '필수 참석 인원이 포함되어 있어요. 요청을 보내는 걸 권장해요.'
+                : '필수 인원이 아니라면 요청 없이 진행해도 괜찮아요.'}
+            </div>
           </div>
           <div className="flex flex-col gap-0.5 items-start w-full">
             {yielders.map((m) => (
