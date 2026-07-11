@@ -30,7 +30,7 @@ function App() {
   const Screen = SCREEN_MAP[screen];
 
   return (
-    <div className="min-h-svh w-full flex items-center justify-center gap-10 py-10 px-6 bg-gray-05">
+    <div className="min-h-svh w-full flex items-center justify-center bg-gray-05 min-[480px]:gap-10 min-[480px]:py-10 min-[480px]:px-6">
       <MobileFrame>
         <Screen />
         {activeSheet === 'calendar' && <CalendarSheet />}

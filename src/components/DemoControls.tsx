@@ -10,7 +10,7 @@ export default function DemoControls() {
   const resetAll = useAppStore((s) => s.resetAll);
 
   return (
-    <div className="flex flex-col gap-3 items-start w-[220px] shrink-0">
+    <div className="hidden min-[480px]:flex flex-col gap-3 items-start w-[220px] shrink-0">
       <div className="text-[13px] font-semibold text-gray-50 uppercase tracking-wide">유저 컨트롤</div>
       <div className="flex flex-col gap-2 w-full">
         {SWITCHABLE.map((id) => {

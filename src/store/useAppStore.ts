@@ -79,7 +79,7 @@ interface AppState {
   yieldRequestSent: boolean;
   dragRect: Rect | null;
   // Carousel scroll position on the suggestions screen — lifted out of that
-  // screen's local state so it survives navigating to "다른 시간 탐색" and back
+  // screen's local state so it survives navigating to "전체 시간 탐색" and back
   // (that screen unmounts/remounts on navigation, which would otherwise reset
   // a plain useState to 0).
   suggestActiveIndex: number;

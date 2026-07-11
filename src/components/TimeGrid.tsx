@@ -234,7 +234,13 @@ export default function TimeGrid({ columns, gridState, mode }: TimeGridProps) {
             </div>
 
             {/* columns body */}
-            <div className="flex gap-1 relative" ref={gridBodyRef}>
+            {/* touch-none stops the browser from treating a vertical drag here
+                as a page-scroll gesture — without it, real touch input on
+                mobile fights our own pointermove-based range selection (the
+                page scrolls instead of extending the drag). Scrolling the
+                page still works from outside this element (e.g. the hour
+                label column, or the header text above the grid). */}
+            <div className="flex gap-1 relative touch-none" ref={gridBodyRef}>
               {previewRect && (
                 <div
                   className={`absolute rounded-[2px] pointer-events-none z-10 ${previewColorClass}`}

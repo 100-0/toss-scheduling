@@ -204,7 +204,10 @@ export default function CompactExcludedView({
                       </div>
                       <div
                         data-block
-                        className="flex flex-col items-start justify-center py-[9px] relative"
+                        // touch-none: see TimeGrid.tsx — without it, a
+                        // vertical drag here scrolls the page on real touch
+                        // devices instead of extending the yield selection.
+                        className="flex flex-col items-start justify-center py-[9px] relative touch-none"
                         onPointerMove={handlePointerMove}
                         onPointerUp={handlePointerUp}
                       >
